@@ -32,7 +32,7 @@ function MallCarousel () {
 
 
     return (
-            <Carousel autoplay>
+            <Carousel >
             {
                 dataSource.map((item) => (
                     <img key={`${item.id}`} src={`${item.img_path}`} alt=""/>

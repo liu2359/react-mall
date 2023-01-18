@@ -4,6 +4,7 @@ import Register from "../pages/Register";
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import List from "../pages/List";
 import GoodsList from "../pages/Goods";
+import GoodsDetail from "../pages/GoodsDetail";
 
 const BaseRouter = () => (
     <Router>
@@ -12,6 +13,7 @@ const BaseRouter = () => (
                 <Route path='/list' element={<List/>}></Route>
                 <Route path='/goods' element={<GoodsList/>} />
             </Route>
+            <Route path='/goods/:id' element={<GoodsDetail/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/register' element={<Register/>}></Route>
         </Routes>

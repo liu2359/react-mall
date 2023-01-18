@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {GoodsListApi} from "../request/goods";
 import {message} from "antd";
 import GoodCard from "../components/GoodsCard";
+import '../assets/goods.less'
 
 function GoodsList(){
     let [goodsList,setGoodsList]=useState([])
@@ -28,6 +29,6 @@ function GoodsList(){
         </div>
     )
 
-}
+};
 
 export default GoodsList;
