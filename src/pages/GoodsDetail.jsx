@@ -1,9 +1,10 @@
 import React from 'react';
+import {useParams} from "react-router-dom";
 
 
-function GoodsDetail(props){
-    let {id} = props;
-    console.log('id',props)
+function GoodsDetail(){
+    const params = useParams()
+    console.log('id',params)
     return(
         <div>
             GoodsDetail

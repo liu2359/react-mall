@@ -13,7 +13,8 @@ const BaseRouter = () => (
                 <Route path='/list' element={<List/>}></Route>
                 <Route path='/goods' element={<GoodsList/>} />
             </Route>
-            <Route path='/goods/:id' element={<GoodsDetail/>}></Route>
+
+            <Route path='/goods/:id' element={<GoodsDetail />}></Route>
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/register' element={<Register/>}></Route>
         </Routes>
