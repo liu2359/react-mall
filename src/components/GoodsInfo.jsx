@@ -2,6 +2,7 @@ import react, {useEffect, useState} from 'react'
 import {Button, Descriptions, message} from 'antd';
 import {GoodsInfoApi} from "../request/goods";
 import '../assets/goods.less'
+import {Link} from "react-router-dom";
 
 function GoodsInfo(params){
     let [dataSource, setDataSource] = useState({});
@@ -11,7 +12,6 @@ function GoodsInfo(params){
         GoodsInfoApi({
             id:id
         }).then(res=>{
-            console.log("res get goods info",res)
             if (res.status === 200){
                 dataSource = res.data
                 setDataSource(dataSource)
@@ -29,7 +29,6 @@ function GoodsInfo(params){
         <div className='goodsInfoOutlay'>
             <Descriptions
                 title={dataSource.title} size="default"
-                extra={<Button type="primary">Edit</Button>}
             >
                 <Descriptions.Item label="商品信息">{dataSource.info}</Descriptions.Item>
                 <Descriptions.Item label="剩余数量">{dataSource.num}</Descriptions.Item>
@@ -39,9 +38,20 @@ function GoodsInfo(params){
                     上海,中国
                 </Descriptions.Item>
                 <Descriptions.Item label="店主图片">
-                    <img src={dataSource.boss_avatar} className='good_boss_avatar' />
+                    <img src={dataSource.boss_avatar} className='goodBossAvatar' />
                 </Descriptions.Item>
             </Descriptions>
+            <Link to='/card'>
+                <Button type="primary" className='goodsInfoCard'>
+                    加入购物车
+                </Button>
+            </Link>
+
+            <Link to='/payment'>
+                <Button type="primary" className='goodsInfoBug'>
+                    立即购买
+                </Button>
+            </Link>
         </div>
     )
 }
