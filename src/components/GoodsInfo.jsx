@@ -3,10 +3,14 @@ import {Button, Descriptions, message} from 'antd';
 import {GoodsInfoApi} from "../request/goods";
 import '../assets/goods.less'
 import {Link} from "react-router-dom";
+import {CartCreateApi} from "../request/cart";
 
 function GoodsInfo(params){
     let [dataSource, setDataSource] = useState({});
     let id = params.id;
+    let [bossId, setBossId] = useState(0);
+    let [productId, setProductId] = useState(0);
+    let [num, setNum] = useState(0);
 
     const getGoodInfo =()=>{
         GoodsInfoApi({
@@ -14,6 +18,9 @@ function GoodsInfo(params){
         }).then(res=>{
             if (res.status === 200){
                 dataSource = res.data
+                setBossId(dataSource.boss_id)
+                setProductId(dataSource.id)
+                setNum(dataSource.num)
                 setDataSource(dataSource)
             }else{
                 message.error(res.msg).then()
@@ -24,6 +31,22 @@ function GoodsInfo(params){
     useEffect(()=>{
         getGoodInfo()
     },[])
+
+    const addCard=()=>{
+        console.log(bossId, productId,num)
+        CartCreateApi({
+            boss_id:bossId,
+            product_id:productId,
+            num:num
+        }).then(res=>{
+            console.log("res add card",res)
+            if(res.status===200){
+                message.success("添加购物车成功！")
+            }else{
+                message.error(res.msg).then()
+            }
+        })
+    }
 
     return(
         <div className='goodsInfoOutlay'>
@@ -41,11 +64,11 @@ function GoodsInfo(params){
                     <img src={dataSource.boss_avatar} className='goodBossAvatar' />
                 </Descriptions.Item>
             </Descriptions>
-            <Link to='/card'>
-                <Button type="primary" className='goodsInfoCard'>
+            {/*<Link to='/card'>*/}
+                <Button onClick={addCard} type="primary" className='goodsInfoCard'>
                     加入购物车
                 </Button>
-            </Link>
+            {/*</Link>*/}
 
             <Link to='/payment'>
                 <Button type="primary" className='goodsInfoBug'>

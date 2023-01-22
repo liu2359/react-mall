@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from "react";
 import {Layout, message} from "antd";
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import {DownOutlined, ShoppingCartOutlined, SmileOutlined} from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import defaultAvatar from '../assets/defaultAvatar.jpg'
 import {Link,useNavigate} from "react-router-dom";
+import '../assets/base.less'
 
 export default function Header() {
     const [avatar,setAvatar]=useState(defaultAvatar)
@@ -30,7 +31,7 @@ export default function Header() {
 
     const items = [
         {
-            key: '1',
+            key: '0',
             label: (
                 <a target="_blank" rel="noopener noreferrer" href="">
                     修改资料
@@ -66,6 +67,9 @@ export default function Header() {
                         </Space>
                     </a>
                 </Dropdown>
+            </div>
+            <div className='headerLeft'>
+                <ShoppingCartOutlined />
             </div>
         </header>
     )

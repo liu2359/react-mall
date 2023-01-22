@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import GoodsImgs from "../components/GoodsImgs";
 import '../assets/goods.less'
 import GoodsInfo from "../components/GoodsInfo";
+import Header from "../components/Header";
 
 function GoodsDetail(){
     const params = useParams()
@@ -10,6 +11,7 @@ function GoodsDetail(){
 
     return(
         <div className='goodsImgsContainer'>
+            <Header />
             <div className='goodsImgsBox'>
                 <GoodsImgs id={id}></GoodsImgs>
             </div>

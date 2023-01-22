@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Carousel, message} from 'antd';
 import {CarouselListApi} from "../request/carousel";
-import {TaskListApi} from "../request/api";
+import {TaskListApi} from "../request/user";
 import moment from "moment/moment";
 const contentStyle = {
     height: '160px',

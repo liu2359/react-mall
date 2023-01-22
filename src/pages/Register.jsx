@@ -3,7 +3,7 @@ import { Button, message, Form, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import {Link,useNavigate} from 'react-router-dom'
 import "./less/Login.less"
-import {RegisterApi} from "../request/api";
+import {RegisterApi} from "../request/user";
 import LoginCard from "../components/LoginCard";
 
 export default function Register() {
