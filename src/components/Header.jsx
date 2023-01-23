@@ -69,7 +69,9 @@ export default function Header() {
                 </Dropdown>
             </div>
             <div className='headerLeft'>
-                <ShoppingCartOutlined />
+                <Link to='/cart' target='_blank'>
+                    <ShoppingCartOutlined />
+                </Link>
             </div>
         </header>
     )

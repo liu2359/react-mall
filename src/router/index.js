@@ -18,7 +18,7 @@ const BaseRouter = () => (
             </Route>
 
             <Route path='/goods/:id' element={<GoodsDetail />}></Route>
-            <Route path='/card' element={<Cart />}></Route>
+            <Route path='/cart' element={<Cart />}></Route>
             <Route path='/payment' element={<Payment />}></Route>
             <Route path='/order' element={<Order />}></Route>
             <Route path='/login' element={<Login/>}></Route>
