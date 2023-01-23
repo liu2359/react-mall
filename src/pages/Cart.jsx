@@ -26,34 +26,35 @@ const renderBadge = (count, active = false) => {
 function Cart(){
     const [activeKey, setActiveKey] = useState('tab1');
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+    let [cartData,setCartData] = useState([])
 
     const rowSelection = {
         selectedRowKeys,
         onChange: (keys) => setSelectedRowKeys(keys),
     }
 
-    let [cartData,setCartData] = useState([])
-
     const getCartInfo=()=>{
         CartGetApi({
         }).then(res =>{
-            console.log(res)
             if(res.status === 200){
-                let array=[];
-                res.data.map((t)=>{
-                    dataSource.id = t.id
-                    dataSource.name=t.name
-                    dataSource.desc=t.desc
-                    dataSource.content = [{
-                        label:"数量",
-                        value:t.num,
-                    },{
-                        label: "金额",
-                        value: t.discount_price,
-                    }]
-                    array = [...array,dataSource]
+                let newArr = JSON.parse(JSON.stringify(res.data));
+                let arr = []
+                newArr.map((t)=>{
+                    const arrayTmp = dataSource
+                    let obj = {
+                        id:t.id,
+                        name:t.name,
+                        content:[{
+                            label:"数量",
+                            value:t.num,
+                        },{
+                            label: "金额",
+                            value: t.discount_price,
+                        }]
+                    }
+                    arr.push(obj)
                 })
-                setCartData(array)
+                setCartData(arr)
             }else{
                 message.success(res.msg)
             }
