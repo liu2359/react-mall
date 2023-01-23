@@ -5,6 +5,7 @@ import Header from './components/Header'
 import {Footer} from "antd/es/layout/layout";
 import MallCarousel from "./components/Carousel";
 import './assets/base.less'
+import './assets/goods.less'
 
 function App() {
   return (

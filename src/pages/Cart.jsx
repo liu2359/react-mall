@@ -4,7 +4,7 @@ import { ProList } from '@ant-design/pro-components';
 import {Badge, Button, message} from 'antd';
 import React, { useState } from 'react';
 import Notification from "../components/Notification";
-
+import '../assets/base.less'
 
 
 const dataSource = [{
@@ -65,7 +65,7 @@ function Cart(){
     },[]);
 
     return (
-        <div>
+        <div className='cartBox'>
             <ProList rowKey="id"
                      rowSelection={rowSelection}
                      dataSource={cartData}
